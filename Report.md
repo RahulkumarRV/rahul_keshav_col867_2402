@@ -22,7 +22,7 @@ NDT7 Data is extracted from Google Cloud Storage using `gsutil`.  The datafolder
 For downloading the data we used gsutil. We download data for the first day of January 2024.
 A script (`extract_files.py`) is used to recursively decrypt and extract the compressed files into a single folder.  
 
-### 2.2 Preprocessing for Bandwidth Prediction  
+### 2.2 Data Preprocessing for Bandwidth Prediction  
 We process **server measurement data** to create a session-level dataset:  
 1. **Aggregating Server Measurements:** Each speed test consists of multiple **TCPInfo snapshots** taken at different timestamps.  
 2. **Label (Target Variable):**  
@@ -33,7 +33,7 @@ We process **server measurement data** to create a session-level dataset:
    - Stabilization indicators for detecting bandwidth consistency.  
 
 
-### 2.3 Preprocessing for Early Termination Prediction  
+### 2.3 Data Preprocessing for Early Termination Prediction  
 We prepare the dataset differently for the early termination model:  
 1. **Row-wise Processing:** Instead of aggregating, we treat each **TCPInfo snapshot** as a single row in the dataset.  
 2. **Elapsed Time Feature:**  
@@ -54,15 +54,15 @@ This ensures that the model learns when the **bandwidth stabilizes**, allowing u
 
 We will train multiple models for different value prediction. One is for predicting network characteristics and one for early termination time.
 
+For the Bandwidth prediction we have trained a Random Forest for regression.
 
-### 3.2 Model Selection  
- 
+#### Evaluation Metrics for bandwidth prediction model 
+![Alt Text](./Figure_1.png).
 
-### 3.3 Evaluation Metrics  
-- **MAE for \( T_{\text{early}} \)** (how close predicted termination time is to the actual stable time).  
-- **R² Score** for early bandwidth prediction.  
-- **Classification Accuracy** (if using classification for early vs. full test).  
-
+**Model Performance**:
+MAE: 8.450 Mbps
+RMSE: 18.454 Mbps
+R² Score: 0.973
 
 
 ## 5. Challanges Faced
