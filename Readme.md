@@ -4,6 +4,8 @@ This project aims to analyze speed test data and build a regression model to pre
 
 ## Dataset Overview
 
+#### we have collected approximately 6000 rows of data for the Bandwidth Prediction model. We will later generalize this by collecting data from different time and date. 
+
 The dataset is stored in `data_set.csv` and contains the following attributes:
 
 | Attribute Name               | Description                                                                                     | Relevance for Regression Model                                                                 |
