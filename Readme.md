@@ -164,6 +164,12 @@ The dataset is stored in `data_set.csv` and contains the following attributes:
 - **Importance**: High variability in throughput may indicate instability, which could lead to early termination.
 
 
+
+## data collected for training ealry termination model 
+<list all the colunms here>
+<talk about how the labels are collected>
+
+
 ## File Descriptions
 
 ### **1. `extract_files.py`**
